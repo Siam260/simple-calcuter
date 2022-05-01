@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Calculator</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+      font-size: 28px;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5;
+    }
+    .calculator {
+      width: 350px;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.5);
+    }
+    .header {
+      background-color: #000;
+      height: 120px;
+      border-radius: 10px 10px 0 0;
+    }
+    .window {
+      height: 15px;
+      display: flex;
+      justify-content: flex-start;
+      padding: 10px;
+    }
+    .window span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .red {
+      background-color: #ff5252;
+    }
+    .yellow {
+      background-color: #f5a623;
+    }
+    .green {
+      background-color: #73c21d;
+    }
+    .input {
+      color: #4a4a4a;
+      text-align: right;
+      padding: 10px 30px;
+    }
+    .input span {
+      color: #ffffff;
+    }
+    .keys {
+      background: linear-gradient(135deg, #3a3a3a, #000000);
+      height: 280px;
+      border-radius: 0 0 10px 10px;
+      font-size: 24px;
+    }
+    .row {
+      height: 70px;
+      display: flex;
+      flex-direction: row;
+    }
+    .number {
+      width: 75%;
+      display: flex;
+      color: #ffffff;
+    }
+    .number button {
+      width: calc(100% / 3);
+      height: 70px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .number button:hover {
+      background-color: #333;
+    }
+    .symbol {
+      width: 25%;
+      background-color: #ffffff;
+      font-size: 34px;
+    }
+    .symbol button {
+      width: 100%;
+      height: 70px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .symbol button:hover {
+      background-color: #ddd;
+    }
+    .symbol.action {
+      background: linear-gradient(60deg, #ff0300, #ffa100);
+      border-radius: 0 0 10px 0;
+      color: #ffffff;
+      box-shadow: 0 25px 60px -10px rgba(255, 10, 0, 0.5);
+    }
+    .dull {
+      font-size: 14px;
+      font-weight: bold;
+      color: #4a4a4a;
+    }
+    p.credit {
+      font-size: 14px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      margin: 0;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <form action="/" method="POST">
+      <div class="header">
+        <div class="window">
+          <span class="red"></span>
+          <span class="yellow"></span>
+          <span class="green"></span>
+        </div>
+        <div class="input">
+          <input type="text" name="expression" id="result" value="{{ result }}" readonly>
+        </div>
+      </div>
+      <div class="keys">
+        <div class="row">
+          <div class="number">
+            <button type="submit" name="button" value="7">7</button>
+            <button type="submit" name="button" value="8">8</button>
+            <button type="submit" name="button" value="9">9</button>
+          </div>
+          <div class="symbol">
+            <button type="submit" name="button" value="*">×</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="number">
+            <button type="submit" name="button" value="4">4</button>
+            <button type="submit" name="button" value="5">5</button>
+            <button type="submit" name="button" value="6">6</button>
+          </div>
+          <div class="symbol">
+            <button type="submit" name="button" value="-">-</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="number">
+            <button type="submit" name="button" value="1">1</button>
+            <button type="submit" name="button" value="2">2</button>
+            <button type="submit" name="button" value="3">3</button>
+          </div>
+          <div class="symbol">
+            <button type="submit" name="button" value="+">+</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="number">
+            <button type="submit" name="button" value="AC">AC</button>
+            <button type="submit" name="button" value="0">0</button>
+            <button type="submit" name="button" value="/">÷</button>
+          </div>
+          <div class="symbol action">
+            <button type="submit" name="button" value="=">=</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p class="credit">
+    Inspired from the design by <a href="https://dribbble.com/shots/3998247-Calculator" target="_blank">Dennis</a>
+  </p>
+</body>
+</html>
